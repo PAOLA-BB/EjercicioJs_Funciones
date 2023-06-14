@@ -1,78 +1,36 @@
-/*
-let roja = document.querySelector(".rojo");
-let amarilla = document.querySelector(".amarillo");
+
+let rojo = document.querySelector(".rojo");
+let amarillo = document.querySelector(".amarillo");
 let verde = document.querySelector(".verde");
 
-function luzRoja() {
-    luzRoja.style.backgroundColor = 'red';
-    luzAmarilla.style.backgroundColor = 'black';
-    luzVerde.style.backgroundColor = 'black';
-}
-function encenderAmarilla() {
-    luzRoja.style.backgroundColor = 'black';
-    luzAmarilla.style.backgroundColor = 'yellow';
-    luzVerde.style.backgroundColor = 'black';
-  }
-  
-  // Función para encender la luz verde
-  function encenderVerde() {
-    luzRoja.style.backgroundColor = 'black';
-    luzAmarilla.style.backgroundColor = 'black';
-    luzVerde.style.backgroundColor = 'green';
-  }
-  
-  function cambiarLuces() {
-    encenderRoja();
-    setTimeout(function() {
-      encenderAmarilla();
-      setTimeout(function() {
-        encenderVerde();
-        setTimeout(cambiarLuces, 2000); // Llamada recursiva para repetir el ciclo
-      }, 2000);
-    }, 2000);
-  }
-  
-  // Iniciar el ciclo de cambio de luces
-  cambiarLuces();
-  */
-
-  // Obtener referencias a las luces del semáforo
-var luzRoja = document.querySelector('.roja');
-var luzAmarilla = document.querySelector('.amarilla');
-var luzVerde = document.querySelector('.verde');
-
-// Función para encender la luz roja
-function encenderRoja() {
-  luzRoja.style.backgroundColor = 'red';
-  luzAmarilla.style.backgroundColor = 'black';
-  luzVerde.style.backgroundColor = 'black';
+function encenderRojo() {
+    rojo.style.backgroundColor = 'red';
+    amarillo.style.backgroundColor = 'black';
+    verde.style.backgroundColor = 'black';
 }
 
-// Función para encender la luz amarilla
-function encenderAmarilla() {
-  luzRoja.style.backgroundColor = 'black';
-  luzAmarilla.style.backgroundColor = 'yellow';
-  luzVerde.style.backgroundColor = 'black';
-}
-
-// Función para encender la luz verde
 function encenderVerde() {
-  luzRoja.style.backgroundColor = 'black';
-  luzAmarilla.style.backgroundColor = 'black';
-  luzVerde.style.backgroundColor = 'green';
+    rojo.style.backgroundColor = 'black';
+    amarillo.style.backgroundColor = 'black';
+    verde.style.backgroundColor = 'green';
 }
 
-// Función para cambiar las luces del semáforo
+function encenderAmarillo() {
+    rojo.style.backgroundColor = 'black';
+    amarillo.style.backgroundColor = 'yellow';
+    verde.style.backgroundColor = 'black';
+}
+  
 function cambiarLuces() {
-  encenderRoja();
-  setTimeout(function() {
-    encenderAmarilla();
+    encenderRojo();
     setTimeout(function() {
-      encenderVerde();
-      setTimeout(cambiarLuces, 2000); // Llamada recursiva para repetir el ciclo
+        encenderVerde();
+        setTimeout(function() {
+            encenderAmarillo();
+            setTimeout(cambiarLuces, 2000); // Llamada recursiva para repetir el ciclo
+        }, 2000);
     }, 2000);
-  }, 2000);
 }
-
+  
 // Iniciar el ciclo de cambio de luces
 cambiarLuces();
